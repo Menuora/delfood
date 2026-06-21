@@ -1,0 +1,21 @@
+{
+  "name": "delfood-sellable-template",
+  "version": "1.0.0",
+  "description": "Vercel-ready hotel and restaurant website template with admin, bookings, Cloudinary images, and settings.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check api/index.js && node --check js/admin.js && node --check js/bookings.js && node --check js/gallery.js && node --check js/settings.js",
+    "smoke": "node scripts/smoke.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "express-session": "^1.18.1"
+  },
+  "devDependencies": {}
+}

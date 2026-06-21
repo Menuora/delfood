@@ -1,0 +1,114 @@
+{
+  "bookings": [
+    {
+      "id": "mqc4gsim",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:57:26.878Z"
+    },
+    {
+      "id": "mqc4c4wq",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:53:49.658Z"
+    },
+    {
+      "id": "mqc4637r",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:49:07.527Z"
+    },
+    {
+      "id": "mqc43s6p",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:47:19.921Z"
+    },
+    {
+      "id": "mqc3wobq",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:41:48.326Z"
+    },
+    {
+      "id": "mqc3tl6d",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:39:24.277Z"
+    },
+    {
+      "id": "mqc3s86p",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:38:20.785Z"
+    },
+    {
+      "id": "mqc3pzaj",
+      "name": "Test Guest",
+      "phone": "1234567890",
+      "email": "",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "guests": "2",
+      "message": "",
+      "createdAt": "2026-06-13T08:36:35.947Z"
+    }
+  ],
+  "images": [],
+  "settings": {
+    "restaurantName": "Delfood",
+    "facebookLink": "",
+    "instagramLink": "",
+    "twitterLink": "",
+    "googleMapsEmbed": "",
+    "openingTime": "10:00 AM",
+    "closingTime": "10:00 PM"
+  },
+  "homepageImages": {
+    "heroImage1": "images/slider-img1.png",
+    "heroImage1Secondary": "images/slider-img2.png",
+    "heroImage2": "images/slider-img3.png",
+    "heroImage2Secondary": "images/slider-img4.png",
+    "aboutImage1": "images/about-img.jpg",
+    "aboutImage2": "images/r1.jpg",
+    "bookingSideImage": "images/app-bg.png",
+    "menuHeaderImage": "images/hero-bg.jpg",
+    "galleryHeaderImage": "images/hero-bg.jpg",
+    "contactHeaderImage": "images/hero-bg.jpg"
+  }
+}

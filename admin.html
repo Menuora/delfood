@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delfood Admin</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-page">
+  <main class="admin-shell">
+    <section id="loginPanel" class="admin-login">
+      <div class="admin-login-copy">
+        <span class="admin-kicker">Restaurant control room</span>
+        <h1><span data-restaurant-name>Delfood</span> Admin</h1>
+        <p>Manage bookings, menu photos, website links, map embeds, hours, and homepage images from one clean dashboard.</p>
+        <div class="admin-login-points">
+          <span><i class="fa fa-lock" aria-hidden="true"></i> Private owner access</span>
+          <span><i class="fa fa-cloud-upload" aria-hidden="true"></i> Cloudinary image uploads</span>
+          <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Live booking requests</span>
+        </div>
+      </div>
+      <div class="admin-login-card">
+        <div class="admin-card-icon">
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+        </div>
+        <h2>Sign in</h2>
+        <p>Use the credentials configured in your environment variables.</p>
+        <form id="loginForm">
+          <label>Username</label>
+          <input class="form-control" name="username" placeholder="Enter username" autocomplete="username" required>
+          <label>Password</label>
+          <input class="form-control" name="password" type="password" placeholder="Enter password" autocomplete="current-password" required>
+          <button class="btn admin-btn admin-btn-block" type="submit">Open Dashboard</button>
+          <p id="loginStatus" class="admin-status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard" class="admin-dashboard" style="display:none">
+      <div class="admin-top">
+        <div>
+          <span class="admin-kicker">Owner dashboard</span>
+          <h1><span data-restaurant-name>Delfood</span></h1>
+          <p>Bookings, gallery uploads, and website settings.</p>
+        </div>
+        <button id="logoutBtn" class="btn admin-logout">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          Logout
+        </button>
+      </div>
+
+      <div class="admin-stats">
+        <div class="admin-stat">
+          <span>Bookings</span>
+          <strong id="bookingCount">0</strong>
+        </div>
+        <div class="admin-stat">
+          <span>Gallery Images</span>
+          <strong id="imageCount">0</strong>
+        </div>
+        <div class="admin-stat">
+          <span>Open Hours</span>
+          <strong data-opening-hours>10:00 AM - 10:00 PM</strong>
+        </div>
+      </div>
+
+      <div class="admin-grid">
+        <div class="admin-card wide">
+          <div class="admin-section-head">
+            <div>
+              <h2>Bookings</h2>
+              <p>New table requests submitted from the public website.</p>
+            </div>
+          </div>
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Guest</th>
+                  <th>Contact</th>
+                  <th>Guests</th>
+                  <th>Message</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="bookings"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-section-head">
+            <div>
+              <h2>Menu & Gallery</h2>
+              <p>Upload full menu images or individual dish photos.</p>
+            </div>
+          </div>
+          <form id="uploadForm" class="admin-form">
+            <label>Image title</label>
+            <input class="form-control" name="title" placeholder="Weekend specials" required>
+            <label>Image type</label>
+            <select class="form-control" name="type">
+              <option value="menu">Full menu image</option>
+              <option value="item">Individual item image</option>
+            </select>
+            <label>Upload image</label>
+            <input class="form-control" type="file" name="image" accept="image/*">
+            <label>Cloudinary URL</label>
+            <input class="form-control" name="imageUrl" placeholder="Or paste Cloudinary image URL">
+            <button class="btn admin-btn" type="submit">Save Image</button>
+            <p id="uploadStatus" class="admin-status"></p>
+          </form>
+          <div id="adminImages" class="admin-image-list"></div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-section-head">
+            <div>
+              <h2>Website Settings</h2>
+              <p>Update the public name, social links, map, and hours.</p>
+            </div>
+          </div>
+          <form id="settingsForm" class="admin-form">
+            <label>Hotel / restaurant name</label>
+            <input class="form-control" name="restaurantName" placeholder="Delfood">
+            <label>Facebook link</label>
+            <input class="form-control" name="facebookLink" placeholder="https://facebook.com/...">
+            <label>Instagram link</label>
+            <input class="form-control" name="instagramLink" placeholder="https://instagram.com/...">
+            <label>Twitter / X link</label>
+            <input class="form-control" name="twitterLink" placeholder="https://x.com/...">
+            <label>Google Maps embed</label>
+            <textarea class="form-control" name="googleMapsEmbed" rows="3" placeholder="Paste iframe code or iframe src link"></textarea>
+            <div class="admin-two-col">
+              <div>
+                <label>Opening time</label>
+                <input class="form-control" name="openingTime" placeholder="10:00 AM">
+              </div>
+              <div>
+                <label>Closing time</label>
+                <input class="form-control" name="closingTime" placeholder="10:00 PM">
+              </div>
+            </div>
+            <button class="btn admin-btn" type="submit">Save Settings</button>
+            <p id="settingsStatus" class="admin-status"></p>
+          </form>
+        </div>
+
+        <div class="admin-card wide">
+          <div class="admin-section-head">
+            <div>
+              <h2>Homepage Image Settings</h2>
+              <p>Paste Cloudinary URLs to replace the default template images.</p>
+            </div>
+          </div>
+          <form id="imagesForm" class="admin-form admin-image-form">
+            <label>Hero image 1</label>
+            <input class="form-control" name="heroImage1" placeholder="https://res.cloudinary.com/...">
+            <label>Hero image 1 secondary</label>
+            <input class="form-control" name="heroImage1Secondary" placeholder="https://res.cloudinary.com/...">
+            <label>Hero image 2</label>
+            <input class="form-control" name="heroImage2" placeholder="https://res.cloudinary.com/...">
+            <label>Hero image 2 secondary</label>
+            <input class="form-control" name="heroImage2Secondary" placeholder="https://res.cloudinary.com/...">
+            <label>About image 1</label>
+            <input class="form-control" name="aboutImage1" placeholder="https://res.cloudinary.com/...">
+            <label>About image 2</label>
+            <input class="form-control" name="aboutImage2" placeholder="https://res.cloudinary.com/...">
+            <label>Booking side image</label>
+            <input class="form-control" name="bookingSideImage" placeholder="https://res.cloudinary.com/...">
+            <label>Menu page header image</label>
+            <input class="form-control" name="menuHeaderImage" placeholder="https://res.cloudinary.com/...">
+            <label>Gallery page header image</label>
+            <input class="form-control" name="galleryHeaderImage" placeholder="https://res.cloudinary.com/...">
+            <label>Contact page header image</label>
+            <input class="form-control" name="contactHeaderImage" placeholder="https://res.cloudinary.com/...">
+            <button class="btn admin-btn" type="submit">Save Homepage Images</button>
+            <p id="homeImagesStatus" class="admin-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/settings.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>
